@@ -1,17 +1,26 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
+const port = 3000;
 
-// Set views folder
-app.set("views", path.join(__dirname, "views"));
+// // Set views folder
+// app.set("views", path.join(__dirname, "views"));
 
-// Set EJS as template engine
+// // Set EJS as template engine
+// app.set("view engine", "ejs");
+
+// // Home route
+// app.get("/", (req, res) => {
+//     res.render("home");
+// });
+app.use(express.urlencoded({ extended: true}));
+
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.set(express.static(path.join(__dirname, "public")));
 
-// Home route
 app.get("/", (req, res) => {
-    res.render("home");
+    res.send("Server is running");
 });
 
 // Start server
