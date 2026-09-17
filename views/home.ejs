@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REST API</title>
+    <title>All Posts</title>\
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Welcome to REST API</h1>
-    <p>Express server is working successfully!</p>
+    <h1>Quora Posts</h1>
+    <% for(let post of posts) { %>
+        <div class="post">
+            <h2 class="post-username">@<%= post.username %></h2>
+            <p class="post-content"><%= post.content %></p>
+        </div>
+    <% } %>
 </body>
 </html>
