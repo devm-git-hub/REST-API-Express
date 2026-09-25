@@ -1,21 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Post</title>
-</head>
-<body>
-    <h1>Edit Post</h1>
-    <form action="/posts/<%= post.id %>" method="POST">
-        <input type="hidden" name="_method" value="PATCH">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="<%= post.username %>">
-        <br>
-        <label for="content">Content:</label>
-        <textarea id="content" name="content"><%= post.content %></textarea>
-        <br>
-        <button type="submit">Update Post</button>
-    </form>
-</body>
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit Post</title> 
+        <link rel="stylesheet" href="/style.css"> 
+    </head> 
+    <body> 
+        <div class="edit-container"> 
+            <h1>Edit Post</h1> 
+            <form action="/posts/<%= post.id %>" method="POST" class="edit-form"> 
+                <input type="hidden" name="_method" value="PATCH"> 
+                <label for="username">Username:</label> 
+                <input type="text" id="username" name="username" value="<%= post.username %>" required > 
+                <label for="content">Content:</label> 
+                <textarea id="content" name="content" required ><%= post.content %></textarea> 
+                <button type="submit">Update Post</button> 
+            </form> 
+            <a href="/posts" class="back-link">← Back to Posts</a> 
+        </div> 
+    </body> 
 </html>

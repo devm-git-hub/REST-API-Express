@@ -104,6 +104,13 @@ app.patch("/posts/:id", (req, res) => {
     res.redirect(`/posts/${id}`);
 });
 
+// Delete post
+app.delete("/posts/:id", (req, res) => {
+    const { id } = req.params;
+    posts = posts.filter((p) => p.id !== id);
+    res.redirect("/posts");
+});
+
 // Start server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
